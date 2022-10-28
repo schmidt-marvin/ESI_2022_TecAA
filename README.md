@@ -27,6 +27,8 @@ In this repo, you'll find the code and documentation associated with the differe
 
 | Assignment                    | Start Date | Closing Date | Directory Link                    |
 | ----------------------------- | ---------- | ------------ | ---------------------------- |
-| 01 - Unsupervised Learning | 14/10/2022 | 03/11/2022   | [Click here 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/Task1_UnsupervisedLearning) |
-| 02 - TBD                      | \-         | \-           | \-                           |
-| 03 - TBD                      | \-         | \-           | \-                           |
+| `01 - Unsupervised Learning` | 14/10/2022 | 03/11/2022   | [/task01/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task01) |
+| `02 - TBD`                      | \-         | \-           | \-                           |
+| `03 - TBD`                      | \-         | \-           | \-                           |
+
+Click [here](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/lab_portfolio/) to access the `📄 laboratory portfolio`.
