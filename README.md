@@ -20,4 +20,13 @@
 </div>
 
 # Introduction
-Welcome to the assignment repository for the 2022 ESI course "Machine Learning Techniques" / "Técnicas De Aprendizaje Automático". In this place, you will find all the code and documentation associated to the different assignments carried out in the course. 
+Welcome to the assignment repository for the 2022 ESI course **Machine Learning Techniques**. 
+
+In this repo, you'll find the code and documentation associated with the different assignments carried out in the course. Use the shortcuts provided below to jump to each assignment. 
+ 
+
+| Assignment                    | Start Date | Closing Date | Directory Link                    |
+| ----------------------------- | ---------- | ------------ | ---------------------------- |
+| 01 - Unsupervised Learning | 14/10/2022 | 03/11/2022   | [Click here 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/Task1_UnsupervisedLearning) |
+| 02 - TBD                      | \-         | \-           | \-                           |
+| 03 - TBD                      | \-         | \-           | \-                           |
