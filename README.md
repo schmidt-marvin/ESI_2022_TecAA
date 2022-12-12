@@ -29,6 +29,6 @@ In this repo, you'll find the code and documentation associated with the differe
 | ----------------------------- | ---------- | ------------ | ---------------------------- |
 | `01 - Unsupervised Learning` | 14/10/2022 | 03/11/2022   | [/task01/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task01) |
 | `02 - Supervised Learning` | 17/11/2022 | 15/12/2022   | [/task02/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task02) |
-| `03 - TBD`                      | \-         | \-           | \-                           |
+| `03 - Natural Language Processing` | 12/12/2022 | -   | [/task03/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task03) |
 
 Click [here](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/lab_portfolio/) to access the `📄 laboratory portfolio`.
