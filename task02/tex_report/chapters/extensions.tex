@@ -1,0 +1,43 @@
+\section{Extensions}
+\label{SECTION_Extensions}
+
+\subsection{Outlier Feature Clustering}
+\label{SUBSECTION_OutlierFeatureClustering}
+
+Another great idea could be to add new features using Laplace’s rule\footnote{Refer to: \texttt{Task02\_SupervisedLearning\_OutlierFeatureDetection\_Barba\_Guerrero\_Schmidt.ipynb}.}. In our case, we will only use these features obtained from conditional probabilities, each of them representing the probability of each earthquake to present a damage grade of 1, 2 or 3, given its geo level 1, 2 and 3, as shown in figure \ref{PICTURE_tableoffeatures_ofc}.
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/ofc_figure01.png}{130mm}
+	\caption{Outlier Feature Clustering: Table of features.}
+	\label{PICTURE_tableoffeatures_ofc}
+\end{figure}
+
+Since we have 9 features now, we can apply PCA to do dimensionality reduction as it will save us time and computational cost. Choosing 2 components explains 87\% of the total variance. By using k-means++ and trial and error, we decided to use 6 different components to cluster all the records in the dataset, providing us with the result seen in figure \ref{PICTURE_visualization_ofc}.
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/ofc_figure02.png}{130mm}
+	\caption{Outlier Feature Clustering: Visualization.}
+	\label{PICTURE_visualization_ofc}
+\end{figure}
+
+Finally, by using different boosting algorithms previously mentioned, we can obtain accuracy values of up to 0.74, which are slightly worse than the previous ones, but still very good. However, there is a final strategy to try to reach the top spots in the ranking.
+
+\subsection{Two-phase classification stacked model}
+\label{SUBSECTION_TwoPhaseClassificationStackedModel}
+
+Finally, our last idea was to divide the classification part into two differentiated phases, since there are more samples from damage grade of 2 than from the other two \footnote{Refer to: \texttt{Task02\_SupervisedLearning\_TwoPhaseClassificationStackedModel\_Barba\_Guerrero\_Schmidt.ipynb}.}. Thus, our aim is to first classify each record into one of the two following classes: damage grade of 2 or class 0 (containing all records from the other damage grade records).
+
+After this first classification, if we do not include the record into class 2, we must classify it into damage grade of 1 or damage grade of 3. This strategy prevents us from one of the main problems we used to have in the baseline: the model wrongly classifying records from the third class into the second one.
+
+For both phases, we will use a stacked model with both a CatBoost model and an XGBoost model, since including LightGBM here does not help us improve the results. This implementation will provide us a confusion matrix shown in figure \ref{PICTURE_confmatrix_ofc} for the first and second phase, respectively.
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/2pcsm_figure01}{110mm}
+	\caption{Two-phase classification stacked model: Confusion Matrices for both phases.}
+	\label{PICTURE_confmatrix_ofc}
+\end{figure}
+
+This model has shown to be the best out of the ones tried, with a value of 0.7438, meaning a rank of 459\footnote{Rank 459, as of 13.12.2022, uploaded by user \texttt{RaulBarbaRojas} on 2022-12-11 19:48:05.}.
