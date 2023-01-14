@@ -12,4 +12,4 @@
 
 
 ### Deliverable
-📄 [Task01_UnsupervisedLearning_Barba_Guerrero_Schmidt.ipynb](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task01/Task01_UnsupervisedLearning_Barba_Guerrero_Schmidt.ipynb)
+📄 [Task01_UnsupervisedLearning_Barba_Guerrero_Schmidt.ipynb](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task01/submission/Task01_UnsupervisedLearning_Barba_Guerrero_Schmidt.ipynb)
