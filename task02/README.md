@@ -16,7 +16,7 @@
 ### Deliverables
 
 Written project documentation: <br>
-📄 [TecAA_UnsupervisedLearning_Report.pdf](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task02/submission/TecAA_UnsupervisedLearning_Report.pdf)<br>
+📄 [TecAA_SupervisedLearning_Report.pdf](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task02/submission/TecAA_SupervisedLearning_Report.pdf)<br>
 Best achieved classification result:<br>
 🗄️ [two_phase.csv](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task02/submission/best_result/two_phase.csv)<br>
 Collection of Google Colab Notebooks:<br>
