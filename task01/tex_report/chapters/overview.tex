@@ -1,0 +1,35 @@
+\section{Overview}
+The purpose of this document is to summarize the problem to be solved, as well as key aspects of the created solution during this first milestone. More detailed descriptions of each step can be found in the main Google Colab document\footnote{Refers to document: "\texttt{Task01\_UnsupervisedLearning\_Barba\_Guerrero\_Schmidt.ipynb}"}. 
+
+\subsection{Task Description}
+Within this assignment\footnote{Refers to document: "\texttt{ML2022\_Milestone\_1\_Task\_Definition.pdf}"}, Unsupervised Learning Techniques are applied onto the results of different football teams during the football world cup of 2018\footnote{Refers to document: "\texttt{worldcup\_2018\_final\_data.csv}"}. By applying Unsupervised Learning Techniques, patterns within the input data are revealed. Using these patterns, we can draw conclusions about the dataset, as further discussed where applicable. Moreover, these insights can be utilized within other Unsupervised Learning Techniques.
+
+\newpage
+
+\subsection{Feature Selection and Dimensionality Reduction}
+The steps performed during this stage are essential to the usage of the dataset with other techniques. The dataset, initially having a shape of \texttt{(32, 69)} contains too many columns to be practically usable and visualizable. Having applied the aforementioned techniques, a reduction to three features was achieved using PCA explaining 88.21\% of the original dataset. This also allows for a visualization of the contending teams by plotting the first two features (see Figure \ref{PICTURE_visualization_PCA}). Our approach as well as detailed explanations of this step can be found in chapters two and three of the main Google Colab document.
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/PCA_vis.png}{150mm}
+	\caption{Visualization of dataset after application of PCA.}
+	\label{PICTURE_visualization_PCA}
+\end{figure}
+
+\subsection{Outlier Detection}
+This step serves to detect anomalies within the data. By doing this, we reveal football teams that deviate the strongest from most other teams. In this stage, interpretations about these outliers are made, and, if necessary, filtered out in order to not affect the upcoming clustering steps. We use a parametrized instance of the DBSCAN technique to identify six teams as outliers, namely Brazil, Germany, Croatia, Egypt, Belgium and Serbia. The implementation of the DBSCAN technique, visualizations and interpretations of the outliers can be found in chapter four of the main Google Colab document.
+
+\newpage
+
+\subsection{Clustering}
+Clustering was performed using three distinct techniques in order to compare the results of each one after they've been implemented and parametrized. Namely, we've implemented clustering using HCA, K-Means and DBSCAN. Each of the three techniques uses the prepared dataset retrieved from the previous steps. The result of each technique, a categorization of teams into groups, is visualized using a similar plot as seen in figure \ref{PICTURE_visualization_PCA}. For instance, the resulting group assignment created by the HCA algorithm can be seen in figure \ref{PICTURE_visualization_HCA}. The detais regarding each implemented technique can be found in chapter five of the main Google Cloab document.
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/HCA_AverageLink_vis.png}{150mm}
+	\caption{Visualization of groupings assigned to the dataset using HCA.}
+	\label{PICTURE_visualization_HCA}
+\end{figure}
+
+\subsection{Conclusions}
+Using the most fitting results from the clustering algorithms, in our case the results of the HCA algorithm as seen in figure \ref{PICTURE_visualization_HCA}, we found interesting insights about the competing teams within this world cup. As we focused on the attack features of each team in the past steps, an interpretation of the shown visualization in combination with the world cup results was possible. For example, we concluded that both Russia and France are the teams with the best overall attack values of the whole tournament. The full list of drawn conclusions can be found in chapter six of the main Google Colab document. 
