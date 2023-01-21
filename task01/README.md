@@ -1,7 +1,5 @@
 # Task 1: Unsupervised Learning
 
-
-
 ```
 Analysis of football teams during the Football World Cup of 2018 using Unsupervised Learning Techniques.
 
@@ -11,7 +9,6 @@ Analysis of football teams during the Football World Cup of 2018 using Unsupervi
 
 ## Provided files
 List of files provided by the lecturer that are required to define and accomplish the given task.  
-
 
 📄 [ML2022_Milestone_1_Task_Definition.pdf](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task01/provided_files/ML2022_Milestone_1_Task_Definition.pdf)<br>
 📄 [ML2022_Milestone_1_Dataset_Features.pdf](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task01/provided_files/ML2022_Milestone_1_Dataset_Features.pdf)<br>
