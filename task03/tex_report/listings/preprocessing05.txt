@@ -1,0 +1,27 @@
+(...)
+    (r'you\'re', 'you are'),
+    (r'you\'ve', 'you have')
+]
+
+contractions_regex = [(re.compile(contracted_word), uncontracted_word) for (contracted_word, uncontracted_word) in contractions]
+
+# removes exactly one contraction
+def remove_word_contraction(line):
+  # check term for each possible contraction (iterates list of contractions)
+  for (contracted_word, uncontracted_word) in contractions_regex: 
+    (s, count) = re.subn(contracted_word, uncontracted_word, line)
+    # return result if substitution was successful
+    if count > 0: 
+      return s
+  # no substitution was necessary
+  return line
+
+# removes all contractions
+def remove_word_contractions(line):
+  output_line = remove_word_contraction(line)
+  # if term was removed we need to check for further duplicates
+  if (line != output_line):  
+    return remove_word_contractions(output_line)
+  # if no term removed, no contractions left
+  else:
+    return output_line

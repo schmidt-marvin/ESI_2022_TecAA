@@ -1,0 +1,22 @@
+% defines a macro for correctly line-breaking texttt.
+% use wherever applicable. side-effect are not completely known, since taken
+% from stackexhange (https://tex.stackexchange.com/questions/624295/how-can-i-save-and-restore-fontdimen-parameters)
+
+\def\savefdims{%
+\edef\restorefdims{
+\fontdimen2\the\font=\the\fontdimen2\font\relax
+\fontdimen3\the\font=\the\fontdimen3\font\relax
+\fontdimen4\the\font=\the\fontdimen4\font\relax
+\fontdimen7\the\font=\the\fontdimen7\font\relax
+\hyphenchar\the\font=\the\hyphenchar\font\relax}%
+}
+
+\newcommand*\justify{%
+  \fontdimen2\font=0.4em% interword space
+  \fontdimen3\font=0.2em% interword stretch
+  \fontdimen4\font=0.1em% interword shrink
+  \fontdimen7\font=0.1em% extra space
+  \hyphenchar\font=`\-% allowing hyphenation
+}
+
+\newcommand{\textttwrap}[1]{\texttt{\savefdims\typeout{\meaning\restorefdims}\justify #1\restorefdims}}

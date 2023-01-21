@@ -1,0 +1,5 @@
+lemmatizer = WordNetLemmatizer()
+
+def lemmatize_words_in_line(lemmatizer_instance, line):
+  lemmatized_words = [lemmatizer.lemmatize(word) for word in line.split(" ")]
+  return " ".join(lemmatized_words)

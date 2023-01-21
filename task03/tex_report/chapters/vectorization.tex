@@ -1,0 +1,21 @@
+\section{Vectorization}
+After a proper preprocessing of the given \texttt{csv} file, there was still a need to clean part of the dataset. For example, there were reviews whose \texttt{Score} was not a value between 1 and 5 (see Figure \ref{Figure_Vectorization_01}), and there were numbers in several reviews which were counted as words, an undesirable behaviour.
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/vectorization01.png}{60mm}
+	\caption{Dataset values with illegal \texttt{Score} values.}
+	\label{Figure_Vectorization_01}
+\end{figure}
+
+Once created a \texttt{Review} field composed of \texttt{Summary} + \texttt{Text}, we can apply vectorization to the input dataset. However, due to memory and time issues, only a subset of 1000 reviews could be used, otherwise, the number of features obtained per review made a dataframe big enough to occupy more than the given 4 GB. For vectorization, 4 different configurations were followed.
+
+\begin{enumerate}
+    \item \textbf{TFIDF}: the simplest configuration, which only needs a \texttt{TfidfVectorizer} that obtains a total of 5728 different words in the input reviews.
+    \item \textbf{TFIDF + N-grams}: we tried to use both 2 and 3 as values for N, but ended up choosing 2 in order to avoid longer execution times for the POS tagger, and bigger csv files. In this case we obtain more than 43000 2-grams.
+    \newpage
+    \item \textbf{TFIDF + N-grams + POS tagging}: several options were considered for the use of the POS tagger, such as including relative probabilities for each n-gram, but our final decision was to include the number of adjectives, since we consider that it takes into account people doing either reviews with a very low or very big score.
+    \item \textbf{TFIDF + N-grams + POS tagging + Other features}: in this case we included the number of words and sentences per review, following a similar philosophy as the previous example, that is to say, people angry at their purchased product will tend to write longer reviews.
+\end{enumerate}
+
+Finally, after applying vectorization to each of the four previous configurations, we are ready to apply feature reduction to each of them.

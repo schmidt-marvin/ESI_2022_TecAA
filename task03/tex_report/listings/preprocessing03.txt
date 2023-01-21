@@ -1,0 +1,3 @@
+def correct_spelling(line_to_correct):
+  text_blob = TextBlob(line_to_correct)
+  return str(text_blob.correct())

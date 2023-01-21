@@ -1,0 +1,5 @@
+html_tag = re.compile('<.*?>') 
+
+def cleanhtml(line):
+  output_line = re.sub(html_tag, ' ', str(line))
+  return output_line

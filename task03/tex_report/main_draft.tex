@@ -1,0 +1,44 @@
+\documentclass[pdflatex,sn-mathphys]{sn-jnl}% Math and Physical Sciences Reference Style
+
+% CONFIG (see /config/ folder)
+\input{config/document_preferences.tex}
+\input{config/package_preferences.tex}
+\input{config/listing_preferences.tex}
+
+% MACROS (see /config/ folder)
+\input{config/macro_textttwrap.tex}
+\input{config/macro_includegraphicscentered.tex}
+
+\begin{document}
+
+\title[ ]{\hspace{2em}Machine Learning - Milestone 3\\Natural Language Processing}
+
+% AUTHORS
+\author*[1,2]{\fnm{Raúl} \sur{Barba Rojas}}\email{Raul.Barba@alu.uclm.es}
+
+\author[2,3]{\fnm{Diego} \sur{Guerrero Del Pozo}}\email{Diego.Guerrero@alu.uclm.es}
+\equalcont{These authors contributed equally to this work.}
+
+\author[1,2]{\fnm{Marvin} \sur{Schmidt}}\email{Marvin.Schmidt@alu.uclm.es}
+\equalcont{These authors contributed equally to this work.}
+
+\affil*[1]{\orgdiv{Department of Computer Science}, \orgname{Universidad de Castilla-La Mancha}, \orgaddress{\street{Paseo de la Universidad, 4.}, \city{Ciudad Real}, \postcode{13071}, \state{Castilla-La Mancha}, \country{Spain}}}
+
+\maketitle
+
+% CHAPTERS
+\input{chapters/introduction.tex}
+\input{chapters/preprocessing.tex}
+\input{chapters/vectorization.tex}
+\input{chapters/feature_selection.tex}
+\input{chapters/classification_algorithm.tex}
+
+% APPENDIX
+% \begin{appendices}
+
+% \end{appendices}
+
+% SOURCES
+% \bibliography{bibliography}% common bib file
+
+\end{document}

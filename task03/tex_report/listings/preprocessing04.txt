@@ -1,0 +1,11 @@
+def remove_word_duplicates(line): 
+  output_line = re
+  expression = re.compile(r'\b(\w+)\s+\1\b')
+  sub_term = r'\1'
+
+  output_line = expression.sub(sub_term, line)
+
+  if output_line != line: # if term was removed = check for further duplicates
+      return remove_word_duplicates(output_line) 
+  else:
+      return output_line

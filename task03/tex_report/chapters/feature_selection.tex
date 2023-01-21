@@ -1,0 +1,13 @@
+\section{Feature Selection}
+For feature reduction, we used \texttt{SelectKBest} with a \textit{chi-square} score function to reduce the number of features by 70\% and remove the less important ones. After this, we can include all this information in a dataframe to be exported and used in the following phase. One thing has to be taken into account: when using the number of adjectives, words or sentences, this column needs to be normalized in order to have better models.\\
+
+This feature reduction was applied to each configuration, leaving us with a dataframe at the end. The following example corresponds to the configuration \texttt{TFIDF + N-grams + POS tagging + Other features} (see Figure \ref{Figure_FeatureSelection_01}).
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/featureselection01.png}{140mm}
+	\caption{Visualization of the dataset after Feature Selection.}
+	\label{Figure_FeatureSelection_01}
+\end{figure}
+
+\newpage

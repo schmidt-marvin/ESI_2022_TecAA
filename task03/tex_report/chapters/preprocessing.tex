@@ -1,0 +1,73 @@
+\section{Preprocessing}
+During the preprocessing, the raw dataset is transformed using various steps that benefit the quality of the input to any upcoming steps. Within the task description, both mandatory and optional steps are listed. Our goal is to produce an output dataset using the input CSV by executing a selection of these steps in a defined order. As presented in the laboratory session, the solution to this problem is mostly achievable using the functionality provided by the NLTK library. In this section, we mention each performed preprocessing step of our notebook file\footnote{Refers to document: "\texttt{Task03\_NLP\_Preprocessing\_Barba\_Guerrero\_Schmidt.ipynb}"}, as well as further noteworthy details about them.\\
+
+As mentioned in the introduction, the raw input dataset consists of 50808 rows each defining 9 features using the CSV structure. Listing \ref{LISTING_PP01} shows an example entry within the dataset. 
+
+\codefromfilenodir{Plain}{listings/preprocessing01.txt}{Example review within products.csv.}{LISTING_PP01}
+
+\hspace{1em}
+
+\noindent
+We observe the following fields.
+
+\begin{enumerate}
+    \item \texttt{Id} (number)
+    \item \texttt{ProductId} (String)
+    \item \texttt{UserId} (String)
+    \item \texttt{ProfileName} (String)
+    \item \texttt{HelpfulnessNumerator} (int)
+    \item \texttt{HelpfulnessDenominator} (int)
+    \item \texttt{Score} (int in range 1..5)
+    \item \texttt{Time} (int)
+    \item \texttt{Summary} (String)
+    \item \texttt{Text} (String)
+\end{enumerate}
+
+
+Before continuing with any of the preprocessing steps, the first step is to \textbf{extract the three relevant fields}, \texttt{Score}, \texttt{Summary} and \texttt{Text} from each row. Despite the usage of CSV, this step is not trivial due to errors in the present CSV structure. The reason for this is that the sections containing the separator are not properly escaped. Furthermore, we need to remove the misplaced quotation marks and semicolons. To solve these issues, the structure of the malformed CSV was inspected to find the following assumptions.
+
+\begin{enumerate}
+    \item Quotation marks and semicolons have no relevance for this CSV structure, only commas are used for separation.
+    \item  A valid row must contain exactly nine commas or separator characters.
+    \item If a row contains more than nine commas, it contains at least one “rogue comma”.
+    \item “Rogue commas” may only occur in \texttt{ProfileName}, \texttt{Summary} and \texttt{Text}. Therefore, if illegal commas were used, fields 5-10 cannot be distinguished unambiguously.
+\end{enumerate}
+
+\newpage
+
+\noindent
+First, \textbf{all quotation marks and semicolons are removed}. Then, using observations 3 and 4, each row is filtered to remove all commas after the ninth one. Therefore, if a rogue comma occurs in the summary, the contents after the comma become part of the text, which shouldn’t reduce the quality of the dataset by a significant amount. If a rogue comma occurs only within the text, its removal has no impact on the quality.  If a comma occurs in the profile name, all fields, especially the score, are rendered unusable. This has only been noticed within the steps following the preprocessing and is therefore not handled in this part.\\
+
+Using this technique, we restore the CSV structure and continue by eliminating all features except for the score, the summary and the text. The processing steps can now be executed sequentially. Trivial steps, such as the \textbf{removal of emoji characters}, will be omitted.\\
+
+First, \textbf{HTML-like structures} are eliminated from the summary and text fields, as their removal is not handled by the upcoming steps. This step was added retroactively and deviates from the task description, as it’s not asked for. However, it does increase the quality of the dataset greatly, as any content within the tags would be rendered useless otherwise (see Listing \ref{LISTING_PP02}).
+
+\codefromfilenodir{Python}{listings/preprocessing02.txt}{Removal of HTML tags using regex.}{LISTING_PP02}
+
+After filtering out special characters and emoji, a \textbf{spelling correction step} is implemented. This step can be implemented in essentially two lines of code thanks to the \texttt{TextBlob} library shown in the lab sessions (see Listing \ref{LISTING_PP03}). However, it turned out to require more computational power than expected, taking more than 20 hours of runtime for processing the entire dataset. Keeping in mind the limits of the free Google Colab plan, we decided to not include a spelling correction step for the final preprocessed dataset. Upon the theoretical completion of the spelling correction, the contents of the strings are transposed to lower case. 
+
+\codefromfilenodir{Python}{listings/preprocessing03.txt}{Spelling correction of text within a \texttt{String} object.}{LISTING_PP03}
+
+\newpage
+
+\noindent
+The contents of each string are then checked for \textbf{repeated terms} using Regex statements. To do this, the example code shown within the laboratory was adjusted slightly (see Listing \ref{LISTING_PP04}).
+
+\codefromfilenodir{Python}{listings/preprocessing04.txt}{Removal of duplicate words within a string.}{LISTING_PP04}
+
+\hspace{1em}
+
+Next, we want to \textbf{expand so-called word contractions} such as “\textbf{aren’t}” to “\textbf{are not}”. We can assume that texts within reviews are filled with common contractions, as well as slang abbreviations such as “\textbf{‘ol}" instead of “\textbf{old}”. This step uses an extended list of contractions\footnote{Refers to dataset "\texttt{contractions.csv}", available at \url{https://www.kaggle.com/datasets/ishivinal/contractions?resource=download}.} instead of the suggested one linked in the task description, since it further improves the process quality at the cost of an additional minute of processing. In total, 148 contractions are listed within the resource. Listing \ref{LISTING_PP05} shows the implementation of this step.
+
+\codefromfilenodir{Python}{listings/preprocessing05.txt}{Expansion of all word contractions within a string.}{LISTING_PP05}
+
+\newpage
+
+\noindent
+Finally, each word within each string undergoes a \textbf{lemmatization step}. Similarly to the spelling correction, the implementation of this process is achievable using very few lines thanks to the \texttt{WordNetLemmatizer} of the NLTK library (see Listing \ref{LISTING_PP06}).
+
+\codefromfilenodir{Python}{listings/preprocessing06.txt}{Lemmatization of all words within a string.}{LISTING_PP06}
+
+\hspace{1em}
+
+The results of the preprocessing are saved to an intermediary CSV file "\texttt{products\_preprocessed.csv}" and uploaded to the project GitHub to allow for easy usage within the upcoming steps.

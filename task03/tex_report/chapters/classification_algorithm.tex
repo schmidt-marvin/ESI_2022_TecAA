@@ -1,0 +1,40 @@
+\section{Classification Algorithm}
+Last but not least, we had to apply machine learning algorithms to the different configurations mentioned above. Specifically, we wanted to test two algorithms for each configuration (the same algorithms will be used for the sake of comparison). For that reason, we decided to use two algorithms:
+
+\begin{enumerate}
+    \item \textbf{SVM}: essentially, we are using it because it is both simple and effective, as it can adapt to different kinds of data (with different kernels).
+    \item \textbf{XGBoost}: we decided to use it because it is a machine learning algorithm that is well known for giving excellent results overall in machine learning competitions, such as the ones that are hosted in Kaggle. We wanted to see its effectiveness on NLP, which is the main reason why we decided to apply it.
+\end{enumerate}
+
+An important consideration is that there is a big difference between the previous algorithms: XGBoost uses GPU to accelerate the training of the model, while SVM does not require further optimizations. Figure \ref{Figure_ClassificationAlgorithms01} shows the table containing the obtained results after applying the algorithms.
+
+\begin{figure}[h!]
+	\centering
+            \includegraphicscentered{images/classification_algorithm01.png}{118mm}
+	\caption{Obtained results using different configurations.}
+	\label{Figure_ClassificationAlgorithms01}
+\end{figure}
+
+\newpage
+
+\noindent
+There are multiple conclusions that can be drawn from it.
+
+\begin{enumerate}
+    \item SVM looks generally better for this specific task when compared to XGBoost, as all the SVM models are better than the XGBoost models (even when they are tuned).
+    \item Models will rarely predict label 2, most likely due to the imbalance in the data (it is really unlikely that someone will rate a product with 2 stars, probably 1 or 5 are the most common).
+    \item A two-phase classification could be used for further improving the results (probably it would not improve too much, but it could improve the results slightly). The procedure would be as follows.\\
+    A model would decide whether it is 5 rating or not (binary classification), for those predicted as no-5 rating, another model would predict which rating they should have. This kind of procedure (that we developed in the second project of this course) generally slightly improves the results when we have unbalanced data, as it is the case.
+\end{enumerate}
+
+\hspace{1em}
+
+\noindent
+Additionally, the results presented in figure \ref{Figure_ClassificationAlgorithms01} show how there are 2 models that achieve the highest scores.
+
+\begin{enumerate}
+    \item SVM model on configuration 2 (tuned).
+    \item SVM model on configuration 4 (tuned).
+\end{enumerate}
+
+If we take a look at the confusion matrices, which can be found in the Google Colab, they are pretty similar (overall, they are really good, but both models tend to never predict labels 2 or 3, which can be understandable due to the unbalanced nature of the data). Because of that reason, we conclude that the best model is SVM on configuration 2 (tuned), because it is simpler and it gives the same results (there is not a real difference between them), so it maximizes the performance while lowering the effort in applying NLP techniques (only requires vectorization and ngrams).
