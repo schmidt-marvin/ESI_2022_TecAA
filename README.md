@@ -22,13 +22,15 @@
 # Introduction
 Welcome to the assignment repository for the 2022 ESI course **Machine Learning Techniques**. 
 
-In this repo, you'll find the code and documentation associated with the different assignments carried out in the course. Use the shortcuts provided below to jump to each assignment. 
+The laboratory portfolio consists of the developed code and the documentation associated with each of the three assignments. 
+
+Use the shortcuts provided below to navigate through the repository. The individual README pages provide an overview of all created files, as well as explain their purpose. 
  
 
 | Assignment                    | Start Date | Closing Date | Directory Link                    |
 | ----------------------------- | ---------- | ------------ | ---------------------------- |
 | `01 - Unsupervised Learning` | 14/10/2022 | 03/11/2022   | [/task01/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task01) |
 | `02 - Supervised Learning` | 17/11/2022 | 15/12/2022   | [/task02/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task02) |
-| `03 - Natural Language Processing` | 12/12/2022 | 16/01/2023   | [/task03/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task03) |
+| `03 - Natural Language Processing` | 12/12/2022 | 23/01/2023   | [/task03/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task03) |
 
-Click [here](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/lab_portfolio/) to access the `📄 laboratory portfolio`.
+**The contents of this repository have been handed in for evaluation on the 21st of January 2023.**
