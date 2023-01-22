@@ -33,4 +33,4 @@ Use the shortcuts provided below to navigate through the repository. The individ
 | `02 - Supervised Learning` | 17/11/2022 | 15/12/2022   | [/task02/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task02) |
 | `03 - Natural Language Processing` | 12/12/2022 | 23/01/2023   | [/task03/ 🔗](https://github.com/schmidt-marvin/ESI_2022_TecAA/tree/main/task03) |
 
-**The contents of this repository have been handed in for evaluation on the 21st of January 2023.**
+**The contents of this repository have been handed in for evaluation on the 22nd of January 2023.**
